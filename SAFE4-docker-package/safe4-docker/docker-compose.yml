@@ -1,0 +1,13 @@
+services:
+  safe4:
+    image: ${SAFE4_IMAGE:-shuqijkx/safe4:latest}
+    container_name: safe4
+    restart: unless-stopped
+    ports:
+      - "30303:30303/tcp"
+      - "30303:30303/udp"
+      # Enable RPC ports only when you really need them and have firewall rules.
+      # - "8545:8545/tcp"
+      # - "8546:8546/tcp"
+    volumes:
+      - /root/.safe4:/root/.safe4
